@@ -1,0 +1,9 @@
+[workspace]
+changelog_update = true
+update_dependencies = true
+
+[[package]]
+name = "embedded_byteorder"
+changelog_path = "CHANGELOG.md"
+publish = true
+semver_check = true
