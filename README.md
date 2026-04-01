@@ -1,9 +1,9 @@
-# embedded-io-byteorder
+# byteorder-embedded-io
 
-[![CI](https://github.com/zheylmun/embedded-io-byteorder/actions/workflows/ci.yml/badge.svg)](https://github.com/zheylmun/embedded-io-byteorder/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/zheylmun/embedded-io-byteorder/graph/badge.svg)](https://codecov.io/gh/zheylmun/embedded-io-byteorder)
-[![crates.io](https://img.shields.io/crates/v/embedded-io-byteorder.svg)](https://crates.io/crates/embedded-io-byteorder)
-[![docs.rs](https://docs.rs/embedded-io-byteorder/badge.svg)](https://docs.rs/embedded-io-byteorder)
+[![CI](https://github.com/zheylmun/byteorder-embedded-io/actions/workflows/ci.yml/badge.svg)](https://github.com/zheylmun/byteorder-embedded-io/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/zheylmun/byteorder-embedded-io/graph/badge.svg)](https://codecov.io/gh/zheylmun/byteorder-embedded-io)
+[![crates.io](https://img.shields.io/crates/v/byteorder-embedded-io.svg)](https://crates.io/crates/byteorder-embedded-io)
+[![docs.rs](https://docs.rs/byteorder-embedded-io/badge.svg)](https://docs.rs/byteorder-embedded-io)
 
 Extension of [byteorder](https://crates.io/crates/byteorder) with
 [embedded-io](https://crates.io/crates/embedded-io) `Read`/`Write` trait
@@ -27,8 +27,8 @@ async counterparts.
 | `embedded-io-async` | no | Async `ReadBytesExt` / `WriteBytesExt` for `embedded_io_async::Read` / `Write` (implies `embedded-io`) |
 
 All features can be enabled simultaneously; they live in separate modules
-(`embedded_io_byteorder::io`, `embedded_io_byteorder::eio`,
-and `embedded_io_byteorder::eio_async`). When `embedded-io` is enabled, its traits
+(`byteorder_embedded_io::io`, `byteorder_embedded_io::eio`,
+and `byteorder_embedded_io::eio_async`). When `embedded-io` is enabled, its traits
 are also re-exported at the crate root.
 
 ## Usage
@@ -36,7 +36,7 @@ are also re-exported at the crate root.
 ### `ByteOrder` (always available, `no_std`)
 
 ```rust
-use embedded_io_byteorder::{ByteOrder, LittleEndian};
+use byteorder_embedded_io::{ByteOrder, LittleEndian};
 
 let mut buf = [0u8; 4];
 LittleEndian::write_u32(&mut buf, 1_000_000);
@@ -46,7 +46,7 @@ assert_eq!(1_000_000, LittleEndian::read_u32(&buf));
 ### `embedded-io` (requires `embedded-io` feature)
 
 ```rust,ignore
-use embedded_io_byteorder::{BigEndian, ReadBytesExt, WriteBytesExt};
+use byteorder_embedded_io::{BigEndian, ReadBytesExt, WriteBytesExt};
 
 // Read from any embedded_io::Read
 let mut rdr = &[0x00u8, 0x03, 0x43, 0x95][..];
@@ -61,8 +61,8 @@ wtr.write_u32::<BigEndian>(267).unwrap();
 ### `embedded-io-async` (requires `embedded-io-async` feature)
 
 ```rust,ignore
-use embedded_io_byteorder::BigEndian;
-use embedded_io_byteorder::eio_async::ReadBytesExt;
+use byteorder_embedded_io::BigEndian;
+use byteorder_embedded_io::eio_async::ReadBytesExt;
 
 async fn read_value(rdr: &mut &[u8]) -> u32 {
     rdr.read_u32::<BigEndian>().await.unwrap()
@@ -73,7 +73,7 @@ async fn read_value(rdr: &mut &[u8]) -> u32 {
 
 ```rust,ignore
 use std::io::Cursor;
-use embedded_io_byteorder::{BigEndian, io::ReadBytesExt};
+use byteorder_embedded_io::{BigEndian, io::ReadBytesExt};
 
 let mut rdr = Cursor::new(vec![2, 5, 3, 0]);
 assert_eq!(517, rdr.read_u16::<BigEndian>().unwrap());

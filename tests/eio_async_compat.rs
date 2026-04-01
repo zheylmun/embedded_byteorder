@@ -8,12 +8,12 @@ use std::io::Cursor;
 
 use embedded_io_adapters::tokio_1::FromTokio;
 
-use embedded_io_byteorder::{BigEndian, LittleEndian, NativeEndian};
+use byteorder_embedded_io::{BigEndian, LittleEndian, NativeEndian};
 
-use embedded_io_byteorder::eio_async::ReadBytesExt as AsyncRead;
-use embedded_io_byteorder::eio_async::WriteBytesExt as AsyncWrite;
-use embedded_io_byteorder::io::ReadBytesExt as StdRead;
-use embedded_io_byteorder::io::WriteBytesExt as StdWrite;
+use byteorder_embedded_io::eio_async::ReadBytesExt as AsyncRead;
+use byteorder_embedded_io::eio_async::WriteBytesExt as AsyncWrite;
+use byteorder_embedded_io::io::ReadBytesExt as StdRead;
+use byteorder_embedded_io::io::WriteBytesExt as StdWrite;
 
 // -----------------------------------------------------------------------
 // Helpers

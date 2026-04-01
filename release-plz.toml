@@ -3,7 +3,7 @@ changelog_update = true
 dependencies_update = true
 
 [[package]]
-name = "embedded-io-byteorder"
+name = "byteorder-embedded-io"
 changelog_path = "CHANGELOG.md"
 publish = true
 semver_check = true

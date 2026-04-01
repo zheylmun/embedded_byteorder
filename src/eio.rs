@@ -13,7 +13,7 @@ use crate::ByteOrder;
 /// Read unsigned 16 bit big-endian integers from a [`Read`]:
 ///
 /// ```rust
-/// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+/// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
 ///
 /// let mut rdr = &[2u8, 5, 3, 0][..];
 /// assert_eq!(517, rdr.read_u16::<BigEndian>().unwrap());
@@ -40,7 +40,7 @@ pub trait ReadBytesExt: Read {
     /// Read unsigned 8 bit integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::ReadBytesExt;
+    /// use byteorder_embedded_io::ReadBytesExt;
     ///
     /// let mut rdr = &[2u8, 5][..];
     /// assert_eq!(2, rdr.read_u8().unwrap());
@@ -69,7 +69,7 @@ pub trait ReadBytesExt: Read {
     /// Read signed 8 bit integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::ReadBytesExt;
+    /// use byteorder_embedded_io::ReadBytesExt;
     ///
     /// let mut rdr = &[0x02u8, 0xfb][..];
     /// assert_eq!(2, rdr.read_i8().unwrap());
@@ -96,7 +96,7 @@ pub trait ReadBytesExt: Read {
     /// Read unsigned 16 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[2u8, 5, 3, 0][..];
     /// assert_eq!(517, rdr.read_u16::<BigEndian>().unwrap());
@@ -124,7 +124,7 @@ pub trait ReadBytesExt: Read {
     /// Read signed 16 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x00u8, 0xc1, 0xff, 0x7c][..];
     /// assert_eq!(193, rdr.read_i16::<BigEndian>().unwrap());
@@ -152,7 +152,7 @@ pub trait ReadBytesExt: Read {
     /// Read unsigned 24 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x00u8, 0x01, 0x0b][..];
     /// assert_eq!(267, rdr.read_u24::<BigEndian>().unwrap());
@@ -179,7 +179,7 @@ pub trait ReadBytesExt: Read {
     /// Read signed 24 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0xffu8, 0x7a, 0x33][..];
     /// assert_eq!(-34253, rdr.read_i24::<BigEndian>().unwrap());
@@ -206,7 +206,7 @@ pub trait ReadBytesExt: Read {
     /// Read unsigned 32 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x00u8, 0x00, 0x01, 0x0b][..];
     /// assert_eq!(267, rdr.read_u32::<BigEndian>().unwrap());
@@ -233,7 +233,7 @@ pub trait ReadBytesExt: Read {
     /// Read signed 32 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0xffu8, 0xff, 0x7a, 0x33][..];
     /// assert_eq!(-34253, rdr.read_i32::<BigEndian>().unwrap());
@@ -260,7 +260,7 @@ pub trait ReadBytesExt: Read {
     /// Read unsigned 48 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0xb6u8, 0x71, 0x6b, 0xdc, 0x2b, 0x31][..];
     /// assert_eq!(200598257150769, rdr.read_u48::<BigEndian>().unwrap());
@@ -287,7 +287,7 @@ pub trait ReadBytesExt: Read {
     /// Read signed 48 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x9du8, 0x71, 0xab, 0xe7, 0x97, 0x8f][..];
     /// assert_eq!(-108363435763825, rdr.read_i48::<BigEndian>().unwrap());
@@ -314,7 +314,7 @@ pub trait ReadBytesExt: Read {
     /// Read an unsigned 64 bit big-endian integer from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x00u8, 0x03, 0x43, 0x95, 0x4d, 0x60, 0x86, 0x83][..];
     /// assert_eq!(918733457491587, rdr.read_u64::<BigEndian>().unwrap());
@@ -341,7 +341,7 @@ pub trait ReadBytesExt: Read {
     /// Read a signed 64 bit big-endian integer from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x80u8, 0, 0, 0, 0, 0, 0, 0][..];
     /// assert_eq!(i64::min_value(), rdr.read_i64::<BigEndian>().unwrap());
@@ -368,7 +368,7 @@ pub trait ReadBytesExt: Read {
     /// Read an unsigned 128 bit big-endian integer from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[
     ///     0x00u8, 0x03, 0x43, 0x95, 0x4d, 0x60, 0x86, 0x83,
@@ -398,7 +398,7 @@ pub trait ReadBytesExt: Read {
     /// Read a signed 128 bit big-endian integer from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x80u8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0][..];
     /// assert_eq!(i128::min_value(), rdr.read_i128::<BigEndian>().unwrap());
@@ -425,7 +425,7 @@ pub trait ReadBytesExt: Read {
     /// Read an unsigned n-byte big-endian integer from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x80u8, 0x74, 0xfa][..];
     /// assert_eq!(8418554, rdr.read_uint::<BigEndian>(3).unwrap());
@@ -453,7 +453,7 @@ pub trait ReadBytesExt: Read {
     /// Read a signed n-byte big-endian integer from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0xc1u8, 0xff, 0x7c][..];
     /// assert_eq!(-4063364, rdr.read_int::<BigEndian>(3).unwrap());
@@ -517,7 +517,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust
     /// use core::f32;
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0x40u8, 0x49, 0x0f, 0xdb][..];
     /// assert_eq!(f32::consts::PI, rdr.read_f32::<BigEndian>().unwrap());
@@ -546,7 +546,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust
     /// use core::f64;
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[
     ///     0x40u8, 0x09, 0x21, 0xfb, 0x54, 0x44, 0x2d, 0x18,
@@ -579,7 +579,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of unsigned 16 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[2u8, 5, 3, 0][..];
     /// let mut dst = [0; 2];
@@ -616,7 +616,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of unsigned 32 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0u8, 0, 2, 5, 0, 0, 3, 0][..];
     /// let mut dst = [0; 2];
@@ -653,7 +653,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of unsigned 64 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[
     ///     0u8, 0, 0, 0, 0, 0, 2, 5,
@@ -693,7 +693,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of unsigned 128 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[
     ///     0u8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5,
@@ -738,7 +738,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of signed 8 bit integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::ReadBytesExt;
+    /// use byteorder_embedded_io::ReadBytesExt;
     ///
     /// let mut rdr = &[2u8, 251, 3][..];
     /// let mut dst = [0; 3];
@@ -771,7 +771,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of signed 16 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[2u8, 5, 3, 0][..];
     /// let mut dst = [0; 2];
@@ -808,7 +808,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of signed 32 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[0u8, 0, 2, 5, 0, 0, 3, 0][..];
     /// let mut dst = [0; 2];
@@ -845,7 +845,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of signed 64 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[
     ///     0u8, 0, 0, 0, 0, 0, 2, 5,
@@ -885,7 +885,7 @@ pub trait ReadBytesExt: Read {
     /// Read a sequence of signed 128 bit big-endian integers from a `Read`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[
     ///     0u8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5,
@@ -927,7 +927,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust
     /// use core::f32;
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[
     ///     0x40u8, 0x49, 0x0f, 0xdb,
@@ -969,7 +969,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust
     /// use core::f64;
-    /// use embedded_io_byteorder::{BigEndian, ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, ReadBytesExt};
     ///
     /// let mut rdr = &[
     ///     0x40u8, 0x09, 0x21, 0xfb, 0x54, 0x44, 0x2d, 0x18,
@@ -1008,7 +1008,7 @@ impl<R: Read + ?Sized> ReadBytesExt for R {}
 /// Write unsigned 16 bit big-endian integers to a [`Write`]:
 ///
 /// ```rust
-/// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+/// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
 ///
 /// let mut buf = [0u8; 4];
 /// {
@@ -1039,7 +1039,7 @@ pub trait WriteBytesExt: Write {
     /// Write unsigned 8 bit integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::WriteBytesExt;
+    /// use byteorder_embedded_io::WriteBytesExt;
     ///
     /// let mut buf = [0u8; 2];
     /// {
@@ -1070,7 +1070,7 @@ pub trait WriteBytesExt: Write {
     /// Write signed 8 bit integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::WriteBytesExt;
+    /// use byteorder_embedded_io::WriteBytesExt;
     ///
     /// let mut buf = [0u8; 2];
     /// {
@@ -1099,7 +1099,7 @@ pub trait WriteBytesExt: Write {
     /// Write unsigned 16 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 4];
     /// {
@@ -1129,7 +1129,7 @@ pub trait WriteBytesExt: Write {
     /// Write signed 16 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 4];
     /// {
@@ -1159,7 +1159,7 @@ pub trait WriteBytesExt: Write {
     /// Write unsigned 24 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 6];
     /// {
@@ -1189,7 +1189,7 @@ pub trait WriteBytesExt: Write {
     /// Write signed 24 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 6];
     /// {
@@ -1219,7 +1219,7 @@ pub trait WriteBytesExt: Write {
     /// Write unsigned 32 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 4];
     /// {
@@ -1248,7 +1248,7 @@ pub trait WriteBytesExt: Write {
     /// Write signed 32 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 4];
     /// {
@@ -1277,7 +1277,7 @@ pub trait WriteBytesExt: Write {
     /// Write unsigned 48 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 6];
     /// {
@@ -1306,7 +1306,7 @@ pub trait WriteBytesExt: Write {
     /// Write signed 48 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 6];
     /// {
@@ -1335,7 +1335,7 @@ pub trait WriteBytesExt: Write {
     /// Write unsigned 64 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 8];
     /// {
@@ -1364,7 +1364,7 @@ pub trait WriteBytesExt: Write {
     /// Write signed 64 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 8];
     /// {
@@ -1432,7 +1432,7 @@ pub trait WriteBytesExt: Write {
     /// Write unsigned 40 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 5];
     /// {
@@ -1470,7 +1470,7 @@ pub trait WriteBytesExt: Write {
     /// Write signed 56 bit big-endian integers to a `Write`:
     ///
     /// ```rust
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 7];
     /// {
@@ -1552,7 +1552,7 @@ pub trait WriteBytesExt: Write {
     ///
     /// ```rust
     /// use core::f32;
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 4];
     /// {
@@ -1584,7 +1584,7 @@ pub trait WriteBytesExt: Write {
     ///
     /// ```rust
     /// use core::f64;
-    /// use embedded_io_byteorder::{BigEndian, WriteBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, WriteBytesExt};
     ///
     /// let mut buf = [0u8; 8];
     /// {

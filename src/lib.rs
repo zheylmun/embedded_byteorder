@@ -26,7 +26,7 @@ Write and read `u32` numbers in little endian order (always available,
 `no_std`):
 
 ```rust
-use embedded_io_byteorder::{ByteOrder, LittleEndian};
+use byteorder_embedded_io::{ByteOrder, LittleEndian};
 
 let mut buf = [0; 4];
 LittleEndian::write_u32(&mut buf, 1_000_000);

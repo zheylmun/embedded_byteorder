@@ -19,8 +19,8 @@ use crate::ByteOrder;
 ///
 /// ```rust,no_run
 /// # async fn example() {
-/// use embedded_io_byteorder::BigEndian;
-/// use embedded_io_byteorder::eio_async::ReadBytesExt;
+/// use byteorder_embedded_io::BigEndian;
+/// use byteorder_embedded_io::eio_async::ReadBytesExt;
 ///
 /// let mut rdr = &[2u8, 5, 3, 0][..];
 /// assert_eq!(517, rdr.read_u16::<BigEndian>().await.unwrap());
@@ -49,7 +49,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust,no_run
     /// # async fn example() {
-    /// use embedded_io_byteorder::eio_async::ReadBytesExt;
+    /// use byteorder_embedded_io::eio_async::ReadBytesExt;
     ///
     /// let mut rdr = &[2u8, 5][..];
     /// assert_eq!(2, rdr.read_u8().await.unwrap());
@@ -79,7 +79,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust,no_run
     /// # async fn example() {
-    /// use embedded_io_byteorder::eio_async::ReadBytesExt;
+    /// use byteorder_embedded_io::eio_async::ReadBytesExt;
     ///
     /// let mut rdr = &[0x02u8, 0xfb][..];
     /// assert_eq!(2, rdr.read_i8().await.unwrap());
@@ -107,7 +107,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust,no_run
     /// # async fn example() {
-    /// use embedded_io_byteorder::{BigEndian, eio_async::ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, eio_async::ReadBytesExt};
     ///
     /// let mut rdr = &[2u8, 5, 3, 0][..];
     /// assert_eq!(517, rdr.read_u16::<BigEndian>().await.unwrap());
@@ -136,7 +136,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust,no_run
     /// # async fn example() {
-    /// use embedded_io_byteorder::{BigEndian, eio_async::ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, eio_async::ReadBytesExt};
     ///
     /// let mut rdr = &[0x00u8, 0xc1, 0xff, 0x7c][..];
     /// assert_eq!(193, rdr.read_i16::<BigEndian>().await.unwrap());
@@ -175,7 +175,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust,no_run
     /// # async fn example() {
-    /// use embedded_io_byteorder::{BigEndian, eio_async::ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, eio_async::ReadBytesExt};
     ///
     /// let mut rdr = &[0x00u8, 0x00, 0x01, 0x0b][..];
     /// assert_eq!(267, rdr.read_u32::<BigEndian>().await.unwrap());
@@ -222,7 +222,7 @@ pub trait ReadBytesExt: Read {
     ///
     /// ```rust,no_run
     /// # async fn example() {
-    /// use embedded_io_byteorder::{BigEndian, eio_async::ReadBytesExt};
+    /// use byteorder_embedded_io::{BigEndian, eio_async::ReadBytesExt};
     ///
     /// let mut rdr = &[0x00u8, 0x03, 0x43, 0x95, 0x4d, 0x60, 0x86, 0x83][..];
     /// assert_eq!(918733457491587, rdr.read_u64::<BigEndian>().await.unwrap());
@@ -477,8 +477,8 @@ impl<R: Read + ?Sized> ReadBytesExt for R {}
 ///
 /// ```rust,no_run
 /// # async fn example() {
-/// use embedded_io_byteorder::BigEndian;
-/// use embedded_io_byteorder::eio_async::WriteBytesExt;
+/// use byteorder_embedded_io::BigEndian;
+/// use byteorder_embedded_io::eio_async::WriteBytesExt;
 ///
 /// let mut buf = [0u8; 4];
 /// {
