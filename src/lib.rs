@@ -44,6 +44,7 @@ assert_eq!(1_000_000, LittleEndian::read_u32(&buf));
 
 #![deny(missing_docs)]
 #![cfg_attr(not(feature = "std"), no_std)]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 
 // Re-export the core byteorder types so users only need one crate.
 pub use byteorder::{
@@ -54,22 +55,27 @@ pub use byteorder::{
 ///
 /// These are re-exported directly from the [`byteorder`] crate.
 #[cfg(feature = "std")]
+#[cfg_attr(docsrs, doc(cfg(feature = "std")))]
 pub mod io {
     pub use byteorder::{ReadBytesExt, WriteBytesExt};
 }
 
 /// `ReadBytesExt` and `WriteBytesExt` for `embedded_io::Read` and `embedded_io::Write`.
 #[cfg(feature = "embedded-io")]
+#[cfg_attr(docsrs, doc(cfg(feature = "embedded-io")))]
 pub mod eio;
 
 /// Async `ReadBytesExt` and `WriteBytesExt` for `embedded_io_async::Read` and `embedded_io_async::Write`.
 #[cfg(feature = "embedded-io-async")]
+#[cfg_attr(docsrs, doc(cfg(feature = "embedded-io-async")))]
 pub mod eio_async;
 
 // When embedded-io is active, re-export its traits at the crate root for
 // convenience (mirrors how upstream byteorder puts std::io traits at root).
 #[cfg(feature = "embedded-io")]
+#[cfg_attr(docsrs, doc(cfg(feature = "embedded-io")))]
 pub use crate::eio::{ReadBytesExt, WriteBytesExt};
 
 #[cfg(feature = "embedded-io")]
+#[cfg_attr(docsrs, doc(cfg(feature = "embedded-io")))]
 pub use embedded_io::ReadExactError;

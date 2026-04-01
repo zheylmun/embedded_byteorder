@@ -31,3 +31,7 @@ default = []
 std = ["byteorder/std"]
 embedded-io = ["dep:embedded-io"]
 embedded-io-async = ["dep:embedded-io-async", "embedded-io"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
