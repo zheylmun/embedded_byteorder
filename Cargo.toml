@@ -1,6 +1,6 @@
 [package]
 name = "byteorder-embedded-io"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Zach Heylmun <zach@heylmun.com>"]
 description = "Extension of byteorder with embedded-io Read/Write trait support for no_std environments."
 homepage = "https://github.com/zheylmun/byteorder-embedded-io"
