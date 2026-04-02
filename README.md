@@ -25,11 +25,15 @@ async counterparts.
 | `std` | no | `ReadBytesExt` / `WriteBytesExt` for `std::io::Read` / `Write` (via `byteorder/std`) |
 | `embedded-io` | no | `ReadBytesExt` / `WriteBytesExt` for `embedded_io::Read` / `Write` |
 | `embedded-io-async` | no | Async `ReadBytesExt` / `WriteBytesExt` for `embedded_io_async::Read` / `Write` (implies `embedded-io`) |
+| `adapters` | no | `FromStd` / `ToStd` bridging `std::io` ↔ `embedded-io` (implies `embedded-io` + `std`) |
 
 All features can be enabled simultaneously; they live in separate modules
 (`byteorder_embedded_io::io`, `byteorder_embedded_io::eio`,
-and `byteorder_embedded_io::eio_async`). When `embedded-io` is enabled, its traits
-are also re-exported at the crate root.
+`byteorder_embedded_io::eio_async`, and `byteorder_embedded_io::adapters`).
+When `embedded-io` is enabled, its core traits (`Read`, `Write`, `ErrorType`,
+`ReadExactError`) and the `eio` extension traits are re-exported at the crate root.
+When `embedded-io-async` is enabled, `AsyncRead` and `AsyncWrite` are also
+re-exported at the crate root.
 
 ## Usage
 
@@ -69,6 +73,17 @@ async fn read_value(rdr: &mut &[u8]) -> u32 {
 }
 ```
 
+### Adapters (requires `adapters` feature)
+
+```rust,ignore
+use byteorder_embedded_io::{BigEndian, ReadBytesExt};
+use byteorder_embedded_io::adapters::FromStd;
+
+// Wrap a std::io type so it can be used with embedded-io ReadBytesExt
+let mut rdr = FromStd::new(std::io::Cursor::new(vec![0, 0, 1, 0]));
+assert_eq!(256, rdr.read_u32::<BigEndian>().unwrap());
+```
+
 ### `std::io` (requires `std` feature)
 
 ```rust,ignore
@@ -82,7 +97,7 @@ assert_eq!(517, rdr.read_u16::<BigEndian>().unwrap());
 ## MSRV
 
 - Base crate (no features): **Rust 1.60** (matches `byteorder`)
-- `embedded-io` / `embedded-io-async` features: **Rust 1.81** (required by `embedded-io 0.7`)
+- `embedded-io` / `embedded-io-async` / `adapters` features: **Rust 1.81** (required by `embedded-io 0.7`)
 
 ## License
 

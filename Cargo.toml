@@ -19,6 +19,7 @@ name = "byteorder_embedded_io"
 byteorder = { version = "1", default-features = false }
 embedded-io = { version = "0.7", default-features = false, optional = true }
 embedded-io-async = { version = "0.7", default-features = false, optional = true }
+embedded-io-adapters = { version = "0.7", default-features = false, features = ["std"], optional = true }
 
 [dev-dependencies]
 quickcheck = { version = "0.9.2", default-features = false }
@@ -31,6 +32,7 @@ default = []
 std = ["byteorder/std"]
 embedded-io = ["dep:embedded-io"]
 embedded-io-async = ["dep:embedded-io-async", "embedded-io"]
+adapters = ["dep:embedded-io-adapters", "embedded-io", "std"]
 
 [package.metadata.docs.rs]
 all-features = true
