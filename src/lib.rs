@@ -36,6 +36,12 @@ LittleEndian::write_u32(&mut buf, 1_000_000);
 assert_eq!(1_000_000, LittleEndian::read_u32(&buf));
 ```
 
+# Minimum Supported Rust Version (MSRV)
+
+The base crate (no features) requires **Rust 1.60**. Enabling
+`embedded-io`, `embedded-io-async`, or `adapters` requires **Rust 1.81**
+due to the `embedded-io` dependency.
+
 [`byteorder`]: https://crates.io/crates/byteorder
 [`embedded-io`]: https://crates.io/crates/embedded-io
 [`ByteOrder`]: trait.ByteOrder.html
